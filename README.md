@@ -31,108 +31,71 @@ Ethereum : 0xfF3Dd2c889bd0Ff73d8085B84A314FC7c88e5D51<br>
 Binance: bnb1l4ywvw5ejfmsgjdcx8jn5lxj7zsun8ktfu7rh8<br>
 Smart Chain: 0xfF3Dd2c889bd0Ff73d8085B84A314FC7c88e5D51<br>
 
-## Features and Services
+特色与服务
+Apache2 和 NGINX 与 PHP-FPM
+多个 PHP 版本（5.6 - 8.2、默认 8.1）
+具有集群功能的 DNS 服务器（绑定）
+具有防病毒、反垃圾邮件和 Webmail 功能的 POP/IMAP/SMTP 邮件服务（ClamAV、SpamAssassin、Sieve、Roundcube）
+MariaDB/MySQL 和/或 PostgreSQL 数据库
+Let's Encrypt 使用通配符证书支持 SSL
+具有暴力攻击检测和 IP 列表（iptables、fail2ban 和 ipset）的防火墙。
+支持的平台和操作系统
+Debian： 12、11 或 10
+Ubuntu： 22.04 LTS、20.04 LTS
+笔记：
 
-- Apache2 and NGINX with PHP-FPM
-- Multiple PHP versions (5.6 - 8.2, 8.1 as default)
-- DNS Server (Bind) with clustering capabilities
-- POP/IMAP/SMTP mail services with Anti-Virus, Anti-Spam, and Webmail (ClamAV, SpamAssassin, Sieve, Roundcube)
-- MariaDB/MySQL and/or PostgreSQL databases
-- Let's Encrypt SSL support with wildcard certificates
-- Firewall with brute-force attack detection and IP lists (iptables, fail2ban, and ipset).
+Hestia 控制面板不支持 32 位操作系统！
+Hestia 控制面板与 OpenVZ 7 或更低版本结合使用可能会出现 DNS 和/或防火墙问题。如果您使用虚拟专用服务器，我们强烈建议您使用基于 KVM 或 LXC 的服务器！
+安装 Hestia 控制面板
+注意：您必须在全新操作系统安装之上安装 Hestia 控制面板，以确保功能正常。
+虽然我们已尽一切努力使安装过程和控制面板界面尽可能友好（即使对于新用户），但假设您在之前对如何设置 Linux 服务器的基础知识有一些了解和了解继续。
 
-## Supported platforms and operating systems
+第 1 步：登录
+要开始安装，您需要以root或具有超级用户权限的用户身份登录。您可以直接从命令行控制台或通过 SSH 远程执行安装：
 
-- **Debian:** 12, 11, or 10
-- **Ubuntu:** 22.04 LTS, 20.04 LTS
-
-**NOTES:**
-
-- Hestia Control Panel does not support 32 bit operating systems!
-- Hestia Control Panel in combination with OpenVZ 7 or lower might have issues with DNS and/or firewall. If you use a Virtual Private Server we strongly advice you to use something based on KVM or LXC!
-
-## Installing Hestia Control Panel
-
-- **NOTE:** You must install Hestia Control Panel on top of a fresh operating system installation to ensure proper functionality.
-
-While we have taken every effort to make the installation process and the control panel interface as friendly as possible (even for new users), it is assumed that you will have some prior knowledge and understanding in the basics how to set up a Linux server before continuing.
-
-### Step 1: Log in
-
-To start the installation, you will need to be logged in as **root** or a user with super-user privileges. You can perform the installation either directly from the command line console or remotely via SSH:
-
-```bash
 ssh root@your.server
-```
+第2步：下载
+下载最新版本的安装脚本：
 
-### Step 2: Download
-
-Download the installation script for the latest release:
-
-```bash
 wget https://raw.githubusercontent.com/hestiacp/hestiacp/release/install/hst-install.sh
-```
+如果由于 SSL 验证错误而导致下载失败，请确保您已在系统上安装了 ca 证书包 - 您可以使用以下命令执行此操作：
 
-If the download fails due to an SSL validation error, please be sure you've installed the ca-certificate package on your system - you can do this with the following command:
-
-```bash
 apt-get update && apt-get install ca-certificates
-```
+第三步：运行
+要开始安装过程，只需运行脚本并按照屏幕上的提示操作即可：
 
-### Step 3: Run
-
-To begin the installation process, simply run the script and follow the on-screen prompts:
-
-```bash
 bash hst-install.sh
-```
+您将在安装期间指定的地址（如果适用）收到一封欢迎电子邮件，并在安装完成后收到屏幕上的说明，用于登录和访问您的服务器。
 
-You will receive a welcome email at the address specified during installation (if applicable) and on-screen instructions after the installation is completed to log in and access your server.
+自定义安装
+您可以在安装过程中指定许多不同的标志，以仅安装您需要的功能。要查看可用选项的列表，请运行：
 
-### Custom installation
-
-You may specify a number of various flags during installation to only install the features in which you need. To view a list of available options, run:
-
-```bash
 bash hst-install.sh -h
-```
+或者，您可以使用https://hestiacp.com/install.html，它允许您通过 GUI 轻松生成安装命令。
 
-Alternatively, You can use <https://hestiacp.com/install.html> which allows you to easily generate the installation command via GUI.
+如何升级现有安装
+新安装的 Hestia 控制面板默认启用自动更新，并且可以通过服务器设置 > 更新进行管理。要手动检查并安装可用更新，请使用 apt 包管理器：
 
-## How to upgrade an existing installation
-
-Automatic Updates are enabled by default on new installations of Hestia Control Panel and can be managed from **Server Settings > Updates**. To manually check for and install available updates, use the apt package manager:
-
-```bash
 apt-get update
 apt-get upgrade
-```
+问题和支持请求
+如果您在使用 Hestia 控制面板时遇到一般问题并需要帮助，请访问我们的论坛以搜索潜在的解决方案或发布新帖子以供社区成员提供帮助。
+Bug 和其他可重现的问题应通过创建新的问题报告通过 GitHub 提交，以便我们的开发人员可以进一步调查。请注意，支持请求将被重定向到我们的论坛。
+重要提示：我们无法为未描述已执行的故障排除步骤的请求或与 Hestia 控制面板无关的第三方应用程序（例如 WordPress）提供支持。请确保您在论坛帖子或问题报告中包含尽可能多的信息！
 
-## Issues & Support Requests
+贡献
+如果您想为该项目做出贡献，请阅读我们的贡献指南，以简要概述我们的开发流程和标准。
 
-- If you encounter a general problem while using Hestia Control Panel and need help, please [visit our forum](https://forum.hestiacp.com/) to search for potential solutions or post a new thread where community members can assist.
-- Bugs and other reproducible issues should be filed via GitHub by [creating a new issue report](https://github.com/hestiacp/hestiacp/issues) so that our developers can investigate further. Please note that requests for support will be redirected to our forum.
+版权
+“Hestia 控制面板”、“HestiaCP”和 Hestia 徽标均为 hestiacp.com 的原始版权，并适用以下限制：
 
-**IMPORTANT: We _cannot_ provide support for requests that do not describe the troubleshooting steps that have already been performed, or for third-party applications not related to Hestia Control Panel (such as WordPress). Please make sure that you include as much information as possible in your forum posts or issue reports!**
+您可以：
 
-## Contributions
+在与应用程序或项目直接相关的任何上下文中使用名称“Hestia 控制面板”、“HestiaCP”或 Hestia 徽标。这包括应用程序本身、本地社区以及新闻或博客文章。
+您不得：
 
-If you would like to contribute to the project, please [read our Contribution Guidelines](https://github.com/hestiacp/hestiacp/blob/release/CONTRIBUTING.md) for a brief overview of our development process and standards.
-
-## Copyright
-
-"Hestia Control Panel", "HestiaCP", and the Hestia logo are original copyright of hestiacp.com and the following restrictions apply:
-
-**You are allowed to:**
-
-- use the names "Hestia Control Panel", "HestiaCP", or the Hestia logo in any context directly related to the application or the project. This includes the application itself, local communities and news or blog posts.
-
-**You are not allowed to:**
-
-- sell or redistribute the application under the name "Hestia Control Panel", "HestiaCP", or similar derivatives, including the use of the Hestia logo in any brand or marketing materials related to revenue generating activities,
-- use the names "Hestia Control Panel", "HestiaCP", or the Hestia logo in any context that is not related to the project,
-- alter the name "Hestia Control Panel", "HestiaCP", or the Hestia logo in any way.
-
-## License
-
-Hestia Control Panel is licensed under [GPL v3](https://github.com/hestiacp/hestiacp/blob/release/LICENSE) license, and is based on the [VestaCP](https://vestacp.com/) project.<br>
+以“Hestia Control Panel”、“HestiaCP”或类似衍生品的名义出售或重新分发应用程序，包括在与创收活动相关的任何品牌或营销材料中使用 Hestia 徽标，
+在与项目无关的任何上下文中使用名称“Hestia Control Panel”、“HestiaCP”或 Hestia 徽标，
+以任何方式更改名称“Hestia Control Panel”、“HestiaCP”或 Hestia 徽标。
+执照
+Hestia Control Panel 根据GPL v3许可证获得许可，并且基于VestaCP项目。
