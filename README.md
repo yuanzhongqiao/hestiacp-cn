@@ -2,7 +2,7 @@
 
 ![HestiaCP Web Interface screenshot](https://storage.hestiacp.com/hestiascreen.png)
 
-<h2 align="center">Lightweight and powerful control panel for the modern web</h2>
+<h2 align="center">适用于现代网络的轻量级且功能强大的控制面板</h2>
 
 <p align="center"><strong>Latest stable release:</strong> Version 1.8.10 | <a href="https://github.com/hestiacp/hestiacp/blob/release/CHANGELOG.md">View Changelog</a></p>
 
@@ -21,7 +21,7 @@
 
 ## **Welcome!**
 
-Hestia Control Panel is designed to provide administrators an easy to use web and command line interface, enabling them to quickly deploy and manage web domains, mail accounts, DNS zones, and databases from one central dashboard without the hassle of manually deploying and configuring individual components or services.
+Hestia 控制面板旨在为管理员提供易于使用的 Web 和命令行界面，使他们能够从一个中央仪表板快速部署和管理 Web 域、邮件帐户、DNS 区域和数据库，而无需手动部署和配置各个组件的麻烦或服务。
 
 ## Donate
 
